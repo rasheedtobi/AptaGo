@@ -11,7 +11,7 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:4000/users/login', { email, password });
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/users/login`, { email, password });
       const { user, accessToken, refreshToken } = response.data;
 
      

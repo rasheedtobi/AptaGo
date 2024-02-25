@@ -14,7 +14,7 @@ const Favorites = () => {
         const products = [];
         for (const id of user.favorites) {
           try {
-            const response = await axios.get(`http://localhost:4000/products/${id}`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/products/${id}`);
             products.push(response.data);
           } catch (error) {
             console.error(`Error fetching product with ID ${id}:`, error);

@@ -1,3 +1,4 @@
+// require('dotenv').config(); 
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -30,7 +31,8 @@ const Product = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/products');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/products`);
+      // const response = await axios.get('http://localhost:4000/products'); 
       setProducts(response.data);
     } catch (error) {
       console.error(error);
@@ -99,7 +101,7 @@ const Product = () => {
           Authorization: `Bearer ${accessToken}`,
         },
       };
-await axios.post(`http://localhost:4000/users/favorites/add/${productId}`, null, config);
+await axios.post(`${process.env.REACT_APP_API_URL}/users/favorites/add/${productId}`, null, config);
 
       // Update the detail state if necessary
       // setDetail([{...products.find(product => product.id === productId), isFlagged: true}]);
