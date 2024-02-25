@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const {  authenticateUser, checkAdmin } = require('../middleware/authserver');
-const Product = require('../models/product');
+const {  authenticateUser, checkAdmin } = require('/middleware/authserver');
+const Product = require('/models/product');
 
 router.post('/', authenticateUser, checkAdmin, async (req, res) => {
   try {

@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const { generateAccessToken, generateRefreshToken, authenticateUser, checkAdmin } = require('../middleware/authserver');
-const User = require('../models/user');
+const { generateAccessToken, generateRefreshToken, authenticateUser, checkAdmin } = require('/middleware/authserver');
+const User = require('/models/user');
 
 router.post('/register', async (req, res) => {
   try {
