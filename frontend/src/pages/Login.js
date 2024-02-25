@@ -13,6 +13,7 @@ function Login() {
     try {
       const response = await axios.post(`${process.env.REACT_APP_API_URL}/users/login`, { email, password });
       const { user, accessToken, refreshToken } = response.data;
+      console.log(response.data)
 
      
       localStorage.setItem('user', JSON.stringify(user));
@@ -23,7 +24,7 @@ function Login() {
       window.location.reload(false);
     } catch (error) {
       alert("wrong email or password");
-      console.error('Login failed:', error.response.data);
+      console.error('Login failed:');
     }
   };
 
