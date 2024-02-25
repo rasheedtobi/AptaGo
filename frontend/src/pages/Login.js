@@ -12,14 +12,14 @@ function Login() {
     event.preventDefault();
     try {
       const response = await axios.post(`${process.env.REACT_APP_API_URL}/users/login`, { email, password });
-      // const { user, accessToken, refreshToken } = response.data;
-      // console.log(response.data)
+      const { user, accessToken, refreshToken } = response.data;
+      console.log(response.data)
 
      
-      // localStorage.setItem('user', JSON.stringify(user));
-      // localStorage.setItem('accessToken', accessToken);
-      // localStorage.setItem('refreshToken', refreshToken);
-      navigate('/register');
+      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem('refreshToken', refreshToken);
+      navigate('/');
       alert("login successful");
       window.location.reload(false);
     } catch (error) {
